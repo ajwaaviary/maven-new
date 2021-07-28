@@ -1,19 +1,10 @@
-pipeline
+node('master') 
 {
-    agent any
-    stages
-    {
-        stage('ContinuousDownload_master')
-        {
-            steps
-            {
-                git 'https://github.com/intelliqittrainings/maven.git'
-            }
-        }
-        stage('ContinuousBuild_master')
-        {
-            steps
-            {
-                sh 'mvn package'
-            }
-         }
+   stage('ContinousDownload_master')
+   {
+       git 'https://github.com/intelliqittrainings/maven.git'
+   }
+   stage('ContinousBuild_master')
+   {
+      sh 'mvn package'
+   }  
